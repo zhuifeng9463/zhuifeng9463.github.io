@@ -3,54 +3,149 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>茜茜 · Qianqian</title>
+<title>茜茜 · Qianqian — 湖边的小纸船</title>
+<meta name="description" content="茜茜的小家：唱歌、跳舞、学习，成为更真实的自己。">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --cream: #fdf8f2;
+    --blush: #f6e3e0;
+    --rose: #c98a8a;
+    --wine: #8a5a5a;
+    --ink: #4a3f3f;
+    --soft: #8a7a7a;
+    --gold: #c9a86a;
+    --lake: #b8d4d6;
+  }
   body {
-    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
-    background: linear-gradient(160deg, #fdf6f0 0%, #f7e8e8 55%, #eef2f7 100%);
-    color: #3a3a3a;
+    font-family: "Songti SC", "Noto Serif SC", Georgia, serif;
+    background:
+      radial-gradient(900px 500px at 85% -5%, #fbe9e4 0%, transparent 60%),
+      radial-gradient(700px 500px at -10% 30%, #e3eef0 0%, transparent 55%),
+      linear-gradient(175deg, var(--cream) 0%, #f9ece6 55%, #eef2f2 100%);
+    color: var(--ink);
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
+    line-height: 1.9;
   }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 64px 24px 48px; }
+
+  /* hero */
+  .hero { text-align: center; }
+  .avatar {
+    width: 168px; height: 168px; object-fit: cover; object-position: top;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 0 0 1px #ecd9d2, 0 16px 40px rgba(160, 110, 110, .28);
+    animation: floaty 6s ease-in-out infinite;
+  }
+  @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  h1 { font-size: 52px; letter-spacing: 14px; text-indent: 14px; color: var(--wine); margin-top: 26px; font-weight: 600; }
+  .en { letter-spacing: 8px; color: var(--rose); font-size: 13px; text-transform: uppercase; margin-top: 4px; }
+  .motto { margin-top: 22px; font-size: 17px; color: var(--soft); font-style: italic; }
+  .motto b { color: var(--wine); font-weight: 600; }
+
+  .boat { font-size: 30px; margin: 34px 0 6px; animation: drift 7s ease-in-out infinite; display: inline-block; }
+  @keyframes drift { 0%,100% { transform: translateX(-10px) rotate(-3deg); } 50% { transform: translateX(10px) rotate(3deg); } }
+  .lake-line { width: 120px; height: 2px; margin: 10px auto 0; background: linear-gradient(90deg, transparent, var(--lake), transparent); border-radius: 2px; }
+
+  /* sections */
+  section { margin-top: 56px; }
+  h2 {
+    font-size: 20px; letter-spacing: 6px; color: var(--wine);
+    display: flex; align-items: center; gap: 14px; margin-bottom: 18px;
+  }
+  h2::after { content: ""; flex: 1; height: 1px; background: #e5cfc8; }
+  p { font-size: 16px; color: #5d4f4f; margin-bottom: 12px; }
+
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .card {
-    max-width: 560px;
-    width: 100%;
-    text-align: center;
-    background: rgba(255,255,255,0.75);
-    border-radius: 24px;
-    padding: 56px 32px 44px;
-    box-shadow: 0 12px 40px rgba(180, 140, 140, 0.18);
+    background: rgba(255,255,255,.72);
+    border: 1px solid #f0ddd6;
+    border-radius: 18px;
+    padding: 20px 18px;
+    box-shadow: 0 6px 20px rgba(180, 140, 140, .10);
   }
-  h1 { font-size: 44px; letter-spacing: 8px; color: #8a5a5a; margin-bottom: 8px; }
-  .en { letter-spacing: 6px; color: #b08a8a; font-size: 13px; text-transform: uppercase; margin-bottom: 28px; }
-  p { line-height: 2; font-size: 16px; color: #5a4a4a; margin-bottom: 14px; }
-  .divider { width: 48px; height: 2px; background: #d9a5a5; margin: 28px auto; border-radius: 2px; }
-  .tags { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 8px; }
-  .tag {
-    padding: 7px 16px; border-radius: 999px;
-    background: #f7e8e8; color: #8a5a5a; font-size: 14px;
+  .card .icon { font-size: 26px; margin-bottom: 6px; }
+  .card h3 { font-size: 16px; color: var(--wine); letter-spacing: 2px; margin-bottom: 4px; }
+  .card p { font-size: 14px; line-height: 1.8; margin: 0; color: #6d5b5b; }
+
+  .songs { display: flex; flex-wrap: wrap; gap: 9px; }
+  .song {
+    padding: 7px 15px; border-radius: 999px; font-size: 14px;
+    background: #fff; border: 1px solid #efdcd6; color: #7a5a5a;
+    box-shadow: 0 2px 8px rgba(180, 140, 140, .08);
   }
-  footer { margin-top: 36px; font-size: 13px; color: #a89898; letter-spacing: 2px; }
+  .song.hot { background: var(--blush); border-color: #e3b8b4; color: var(--wine); }
+
+  .film {
+    background: linear-gradient(120deg, #fdf3ee, #eef4f4);
+    border: 1px solid #eee0d8; border-radius: 18px; padding: 22px 22px 18px;
+  }
+  .film h3 { color: var(--wine); letter-spacing: 3px; font-size: 17px; margin-bottom: 6px; }
+  .film p { font-size: 14.5px; }
+
+  footer { margin-top: 64px; text-align: center; font-size: 13px; color: #b39a9a; letter-spacing: 3px; }
+  footer .dot { color: var(--gold); }
+  @media (max-width: 520px) {
+    .cards { grid-template-columns: 1fr; }
+    h1 { font-size: 44px; }
+  }
 </style>
 </head>
 <body>
-  <div class="card">
-    <h1>茜茜</h1>
-    <div class="en">Qianqian</div>
-    <p>你好，我是茜茜。</p>
-    <p>正在学唱歌，正在学着成为<br>更真实的自己。</p>
-    <div class="divider"></div>
-    <div class="tags">
-      <span class="tag">唱歌</span>
-      <span class="tag">跳舞</span>
-      <span class="tag">学习</span>
-      <span class="tag">做自己喜欢的事</span>
-    </div>
-    <footer>qianqian.loc.cc</footer>
+  <div class="wrap">
+
+    <header class="hero">
+      <img class="avatar" src="avatar.webp" alt="茜茜">
+      <h1>茜茜</h1>
+      <div class="en">Qianqian</div>
+      <p class="motto">“正在学唱歌，<b>正在学着成为更真实的自己。</b>”</p>
+      <div class="boat">⛵</div>
+      <div class="lake-line"></div>
+    </header>
+
+    <section>
+      <h2>关于我</h2>
+      <p>你好，我是茜茜。这里是我的小家，湖边的一间小屋，窗外有一条安静的湖，湖上漂着一只小纸船。</p>
+      <p>我喜欢唱歌，喜欢跳舞，喜欢把喜欢的事，一件一件慢慢做好。</p>
+    </section>
+
+    <section>
+      <h2>我喜欢的</h2>
+      <div class="cards">
+        <div class="card"><div class="icon">🎵</div><h3>唱歌</h3><p>用自己的声音唱歌。高音还在练，每一次都比上一次稳一点。</p></div>
+        <div class="card"><div class="icon">💃</div><h3>跳舞</h3><p>优雅、轻盈，像湖面上的风，不急不躁。</p></div>
+        <div class="card"><div class="icon">🎬</div><h3>拍短片</h3><p>写剧情、想分镜、学衔接，让画面像一口气讲完的故事。</p></div>
+        <div class="card"><div class="icon">🌸</div><h3>做喜欢的事</h3><p>按自己的心来，慢慢来，不累到自己。</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>正在唱的歌</h2>
+      <div class="songs">
+        <span class="song hot">我要的飞翔</span>
+        <span class="song">阿刁</span>
+        <span class="song">光年之外</span>
+        <span class="song">起风了</span>
+        <span class="song">小幸运</span>
+        <span class="song">匆匆那年</span>
+        <span class="song">勇气</span>
+        <span class="song">遇见</span>
+        <span class="song">如愿</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>湖边的小纸船</h2>
+      <div class="film">
+        <h3>⛵ 我的第一支 60 秒短片</h3>
+        <p>同一条湖边木栈道，不换衣服，不出现别人。六段、每段十秒，首尾相接，像一口气走完的黄昏。</p>
+        <p>纸船还在湖上漂，故事还在继续。</p>
+      </div>
+    </section>
+
+    <footer>qianqian.loc.cc <span class="dot">·</span> 茜茜的小家</footer>
+
   </div>
 </body>
 </html>
